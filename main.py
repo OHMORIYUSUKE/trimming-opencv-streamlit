@@ -16,10 +16,10 @@ if uploaded_file is not None:
     try:
         img = Image.open(uploaded_file)
         if bunnruiki == "人間":
-            bunnruiki = 'C:/Users/81908/Documents/Python/aniface/haarcascade_frontalface_alt.xml'
+            bunnruiki = 'haarcascade_frontalface_alt.xml'
             bunnruiki_type = "人"
         elif bunnruiki == 'キャラクター':
-            bunnruiki = 'C:/Users/81908/Documents/Python/aniface/lbpcascade_animeface.xml' 
+            bunnruiki = 'lbpcascade_animeface.xml' 
             bunnruiki_type = "キャラクター"
             
         # ダウンロードしたファイルを指定
