@@ -1,3 +1,4 @@
+opencv-python==4.4.0.46
 alabaster==0.7.12
 altair==4.1.0
 anaconda-client==1.7.2
@@ -129,7 +130,6 @@ numexpr==2.7.1
 numpy @ file:///C:/ci/numpy_and_numpy_base_1603466732592/work
 numpydoc @ file:///tmp/build/80754af9/numpydoc_1605117425582/work
 olefile==0.46
-opencv-python==4.4.0.46
 openpyxl @ file:///tmp/build/80754af9/openpyxl_1598113097404/work
 packaging==20.4
 pandas @ file:///C:/ci/pandas_1602083338010/work
