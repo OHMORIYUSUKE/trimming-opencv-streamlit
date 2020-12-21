@@ -8,7 +8,7 @@ import numpy as np
 st.title('人間・キャラクターの顔認識アプリ')
 
 bunnruiki = st.sidebar.radio("人間・キャラクター",('人間', 'キャラクター'))
-param = st.sidebar.slider('トリミング後の画像の大きさ', -30, 30, 15)
+param = st.sidebar.slider('トリミング後の画像の大きさ', -30, 30, 0)
 
 uploaded_file = st.file_uploader("画像をアップロードしてください。")
 
