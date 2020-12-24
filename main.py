@@ -11,7 +11,6 @@ bunnruiki = st.sidebar.radio("人間・キャラクター",('人間', 'キャラ
 param = st.sidebar.slider('ズーム', -30, 30, 0)
 
 
-
 uploaded_file = st.file_uploader("画像をアップロードしてください。")
 
 if uploaded_file is not None:
@@ -43,7 +42,7 @@ if uploaded_file is not None:
         img_trim=[]
         for (x, y, w, h) in faces:
             #トリミング
-            param = param
+            param = -param
 
             x = x-param
             y = y-param-6 #気持ち上にずらす
