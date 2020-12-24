@@ -9,7 +9,7 @@ st.title('人間・キャラクターの顔認識アプリ')
 
 bunnruiki = st.sidebar.radio("人間・キャラクター",('人間', 'キャラクター'))
 param = st.sidebar.slider('ズーム', -30, 30, 0)
-
+param = -1*param
 
 uploaded_file = st.file_uploader("画像をアップロードしてください。")
 
@@ -42,8 +42,6 @@ if uploaded_file is not None:
         img_trim=[]
         for (x, y, w, h) in faces:
             #トリミング
-            param = -param
-
             x = x-param
             y = y-param-6 #気持ち上にずらす
             w = w+param*2
@@ -101,8 +99,6 @@ if uploaded_file is not None:
         #画像に□を書く
         for (x, y, w, h) in faces:
             #□の大きさをトリミングに合わせる
-            param = param
-
             x = x-param
             y = y-param-6 #気持ち上にずらす
             w = w+param*2
