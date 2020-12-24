@@ -10,6 +10,8 @@ st.title('人間・キャラクターの顔認識アプリ')
 bunnruiki = st.sidebar.radio("人間・キャラクター",('人間', 'キャラクター'))
 param = st.sidebar.slider('ズーム', -30, 30, 0)
 
+
+
 uploaded_file = st.file_uploader("画像をアップロードしてください。")
 
 if uploaded_file is not None:
