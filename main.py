@@ -110,7 +110,7 @@ if uploaded_file is not None:
     except ValueError as error:
         tex_loc1.warning('ERROR : ' + str(error))
         tex_loc2.warning(' "ズーム"の値を変更してください。')
-        tex_loc3.warning('ズームの値 : ' + str(param))
+        tex_loc3.warning('ズームの値 : ' + str(-param))
     except UnidentifiedImageError as error:
         st.warning('ERROR : ' + str(error))
         st.warning('画像以外がアップロードされました。または、アップロードされた画像は認識できない画像です。')
