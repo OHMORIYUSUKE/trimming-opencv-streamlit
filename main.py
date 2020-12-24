@@ -8,7 +8,7 @@ import numpy as np
 st.title('人間・キャラクターの顔認識アプリ')
 
 bunnruiki = st.sidebar.radio("人間・キャラクター",('人間', 'キャラクター'))
-param = st.sidebar.slider('トリミング後の画像の大きさ', -30, 30, 0)
+param = st.sidebar.slider('ズーム', -30, 30, 0)
 
 uploaded_file = st.file_uploader("画像をアップロードしてください。")
 
@@ -112,8 +112,8 @@ if uploaded_file is not None:
     #例外処理
     except ValueError as error:
         tex_loc1.warning('ERROR : ' + str(error))
-        tex_loc2.warning(' "トリミング後の画像の大きさ"の値を変更してください。')
-        tex_loc3.warning('トリミング後の画像の大きさ : ' + str(param))
+        tex_loc2.warning(' "ズーム"の値を変更してください。')
+        tex_loc3.warning('ズームの値 : ' + str(param))
     except UnidentifiedImageError as error:
         st.warning('ERROR : ' + str(error))
         st.warning('画像以外がアップロードされました。または、アップロードされた画像は認識できない画像です。')
