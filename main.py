@@ -105,7 +105,7 @@ if uploaded_file is not None:
             h = h+param*2
             cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
         tex_loc4.write('四角で囲われた場所をトリミングしました。')
-        image_loc.image(img,width=700)
+        image_loc.image(img,use_column_width=True)
     #例外処理
     except ValueError as error:
         tex_loc1.warning('ERROR : ' + str(error))
