@@ -8,8 +8,7 @@ import numpy as np
 st.title('人間・キャラクターの顔認識アプリ')
 
 bunnruiki = st.sidebar.radio("人間・キャラクター",('人間', 'キャラクター'))
-param = st.sidebar.slider('ズーム', -30, 30, 0)
-param = -1*param
+param = st.sidebar.slider('トリミング後の画像の大きさ', -30, 30, 15)
 
 uploaded_file = st.file_uploader("画像をアップロードしてください。")
 
@@ -17,10 +16,10 @@ if uploaded_file is not None:
     try:
         img = Image.open(uploaded_file)
         if bunnruiki == "人間":
-            bunnruiki = 'haarcascade_frontalface_alt.xml'
+            bunnruiki = 'C:/Users/81908/Documents/Python/aniface/haarcascade_frontalface_alt.xml'
             bunnruiki_type = "人"
         elif bunnruiki == 'キャラクター':
-            bunnruiki = 'lbpcascade_animeface.xml' 
+            bunnruiki = 'C:/Users/81908/Documents/Python/aniface/lbpcascade_animeface.xml' 
             bunnruiki_type = "キャラクター"
             
         # ダウンロードしたファイルを指定
@@ -42,6 +41,8 @@ if uploaded_file is not None:
         img_trim=[]
         for (x, y, w, h) in faces:
             #トリミング
+            param = param
+
             x = x-param
             y = y-param-6 #気持ち上にずらす
             w = w+param*2
@@ -99,18 +100,20 @@ if uploaded_file is not None:
         #画像に□を書く
         for (x, y, w, h) in faces:
             #□の大きさをトリミングに合わせる
+            param = param
+
             x = x-param
             y = y-param-6 #気持ち上にずらす
             w = w+param*2
             h = h+param*2
             cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
         tex_loc4.write('四角で囲われた場所をトリミングしました。')
-        image_loc.image(img,use_column_width=True)
+        image_loc.image(img,width=700)
     #例外処理
     except ValueError as error:
         tex_loc1.warning('ERROR : ' + str(error))
-        tex_loc2.warning(' "ズーム"の値を変更してください。')
-        tex_loc3.warning('ズームの値 : ' + str(-param))
+        tex_loc2.warning(' "トリミング後の画像の大きさ"の値を変更してください。')
+        tex_loc3.warning('トリミング後の画像の大きさ : ' + str(param))
     except UnidentifiedImageError as error:
         st.warning('ERROR : ' + str(error))
         st.warning('画像以外がアップロードされました。または、アップロードされた画像は認識できない画像です。')
